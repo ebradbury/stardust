@@ -82,7 +82,7 @@ TableRow.propTypes = {
   cellAs: customPropTypes.as,
 
   /** Shorthand array of props for TableCell. */
-  cells: customPropTypes.items,
+  cells: customPropTypes.itemsShorthand,
 
   /** Primary content. */
   children: PropTypes.node,

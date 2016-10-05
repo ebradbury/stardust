@@ -183,7 +183,7 @@ export const demand = (requiredProps) => {
 /**
  * Ensure a component can render as a node passed as a prop value in place of children.
  */
-export const content = (...args) => every([
+export const contentShorthand = (...args) => every([
   disallow(['children']),
   PropTypes.node,
 ])(...args)
@@ -192,7 +192,7 @@ export const content = (...args) => every([
  * Item shorthand is a description of a component that can be a literal,
  * a props object, or an element.
  */
-export const item = (...args) => every([
+export const itemShorthand = (...args) => every([
   disallow(['children']),
   PropTypes.oneOfType([
     PropTypes.element,
@@ -203,11 +203,11 @@ export const item = (...args) => every([
 ])(...args)
 
 /**
- * ArrayOf shorthand ensures a prop is an array of item shorthand
+ * Items shorthand ensures a prop is an array of item shorthand.
  */
-export const items = (...args) => every([
+export const itemsShorthand = (...args) => every([
   disallow(['children']),
-  PropTypes.arrayOf(item),
+  PropTypes.arrayOf(itemShorthand),
 ])(...args)
 
 /**
@@ -217,7 +217,7 @@ export const items = (...args) => every([
 export const collection = (...args) => every([
   disallow(['children']),
   PropTypes.oneOfType([
-    items,
+    itemsShorthand,
     PropTypes.element,
     PropTypes.object,
   ]),
